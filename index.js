@@ -17,7 +17,7 @@ var fs = require("fs"),
 //Metas
 var web = exports;
 web.version = '0.2.5';
-web.mime = require('./lib/mimes'),
+web.mime = require('./lib/mimes').mimes,
 			web.metas = {
 				set tmplDir(val) {
 					mu.templateRoot = './' + val;
