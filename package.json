@@ -1,6 +1,6 @@
 {
   "name": "webjs",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "A HTTP and TCP framework like Webpy for NodeJS.",
   "homepage": "http://github.com/iwillwen/Web.js",
   "keywords": [
@@ -16,8 +16,8 @@
   },
   "main": "index",
   "dependencies": {
-	 "mustache" : "latest",
-   "formidable" : "latest"
+    "mustache": "0.3.1-dev",
+    "formidable": "latest"
   },
   "devDependencies": {},
   "engines": {

@@ -1,0 +1,269 @@
+info it worked if it ends with ok
+verbose cli [ 'node', '/usr/local/bin/npm', 'publish', '--force' ]
+info using npm@1.0.12
+info using node@v0.5.3-pre
+verbose config file /home/willwen/.npmrc
+verbose config file /usr/local/etc/npmrc
+verbose publish [ '.' ]
+silly testEngine { name: 'webjs',
+silly testEngine   version: '0.2.6',
+silly testEngine   description: 'A HTTP and TCP framework like Webpy for NodeJS.',
+silly testEngine   homepage: 'http://github.com/iwillwen/Web.js',
+silly testEngine   keywords: [ 'http', 'tcp', 'framework', 'simple' ],
+silly testEngine   author: 
+silly testEngine    { name: 'Will Wen Gunn',
+silly testEngine      email: 'i@iwillwen.com',
+silly testEngine      url: 'http://www.iwillwen.com' },
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/iwillwen/Web.js.git' },
+silly testEngine   main: 'index',
+silly testEngine   dependencies: { mustache: '0.3.1-dev', formidable: 'latest' },
+silly testEngine   devDependencies: {},
+silly testEngine   engines: { node: '>= 0.4.0' },
+silly testEngine   _id: 'webjs@0.2.6',
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.12',
+silly testEngine   _nodeVersion: 'v0.5.3-pre',
+silly testEngine   _defaultsLoaded: true,
+silly testEngine   path: '/home/willwen/Web.js' }
+verbose caching package.json
+verbose loadDefaults webjs@0.2.6
+verbose pack /home/willwen/Web.js /tmp/npm-1313487689371/1313487689371-0.20379927172325552/tmp.tgz
+verbose mkdir done: /tmp/npm-1313487689371/1313487689371-0.20379927172325552 755
+verbose mkdir'ed /tmp/npm-1313487689371/1313487689371-0.20379927172325552
+verbose tar about to write tar and gzip it.
+silly tar args [ '-cvf',
+silly tar args   '-',
+silly tar args   'Web.js/CNAME',
+silly tar args   'Web.js/package.json',
+silly tar args   'Web.js/web-client.js',
+silly tar args   'Web.js/README.md',
+silly tar args   'Web.js/index.js',
+silly tar args   'Web.js/index.html',
+silly tar args   'Web.js/lib/https.js',
+silly tar args   'Web.js/lib/util.js',
+silly tar args   'Web.js/lib/mimes.js',
+silly tar args   'Web.js/lib/router.js',
+silly tar args   'Web.js/lib/net.js',
+silly tar args   'Web.js/lib/http.js',
+silly tar args   'Web.js/samples/math.js',
+silly tar args   'Web.js/samples/sayhello-sex.js',
+silly tar args   'Web.js/samples/sayhello.js' ]
+verbose success tar -cvf - <file list elided>
+verbose success gzip "--stdout"
+verbose mkdir done: /tmp/npm-1313487689371/1313487689371-0.20379927172325552/contents/___package.npm 755
+verbose unpack_ uid, gid [ undefined, undefined ]
+verbose unpackTarget /tmp/npm-1313487689371/1313487689371-0.20379927172325552/contents/package
+silly gunzTarPerm modes [ '755', '644' ]
+verbose success gzip "--decompress" "--stdout" "/tmp/npm-1313487689371/1313487689371-0.20379927172325552/tmp.tgz"
+verbose success tar "-mvxpf" "-" "--no-same-owner" "-C" "/tmp/npm-1313487689371/1313487689371-0.20379927172325552/contents/___package.npm"
+silly asyncMap in gTP /tmp/npm-1313487689371/1313487689371-0.20379927172325552/contents/___package.npm/Web.js/
+silly asyncMap in gTP /tmp/npm-1313487689371/1313487689371-0.20379927172325552/contents/___package.npm/Web.js/CNAME
+silly asyncMap in gTP /tmp/npm-1313487689371/1313487689371-0.20379927172325552/contents/___package.npm/Web.js/package.json
+silly asyncMap in gTP /tmp/npm-1313487689371/1313487689371-0.20379927172325552/contents/___package.npm/Web.js/web-client.js
+silly asyncMap in gTP /tmp/npm-1313487689371/1313487689371-0.20379927172325552/contents/___package.npm/Web.js/README.md
+silly asyncMap in gTP /tmp/npm-1313487689371/1313487689371-0.20379927172325552/contents/___package.npm/Web.js/index.html
+silly asyncMap in gTP /tmp/npm-1313487689371/1313487689371-0.20379927172325552/contents/___package.npm/Web.js/index.js
+silly asyncMap in gTP /tmp/npm-1313487689371/1313487689371-0.20379927172325552/contents/___package.npm/Web.js/lib/
+silly asyncMap in gTP /tmp/npm-1313487689371/1313487689371-0.20379927172325552/contents/___package.npm/Web.js/lib/https.js
+silly asyncMap in gTP /tmp/npm-1313487689371/1313487689371-0.20379927172325552/contents/___package.npm/Web.js/lib/util.js
+silly asyncMap in gTP /tmp/npm-1313487689371/1313487689371-0.20379927172325552/contents/___package.npm/Web.js/lib/router.js
+silly asyncMap in gTP /tmp/npm-1313487689371/1313487689371-0.20379927172325552/contents/___package.npm/Web.js/lib/mimes.js
+silly asyncMap in gTP /tmp/npm-1313487689371/1313487689371-0.20379927172325552/contents/___package.npm/Web.js/lib/net.js
+silly asyncMap in gTP /tmp/npm-1313487689371/1313487689371-0.20379927172325552/contents/___package.npm/Web.js/lib/http.js
+silly asyncMap in gTP /tmp/npm-1313487689371/1313487689371-0.20379927172325552/contents/___package.npm/Web.js/samples/
+silly asyncMap in gTP /tmp/npm-1313487689371/1313487689371-0.20379927172325552/contents/___package.npm/Web.js/samples/math.js
+silly asyncMap in gTP /tmp/npm-1313487689371/1313487689371-0.20379927172325552/contents/___package.npm/Web.js/samples/sayhello-sex.js
+silly asyncMap in gTP /tmp/npm-1313487689371/1313487689371-0.20379927172325552/contents/___package.npm/Web.js/samples/sayhello.js
+verbose gunzed /tmp/npm-1313487689371/1313487689371-0.20379927172325552/contents/___package.npm/Web.js
+verbose rm'ed /tmp/npm-1313487689371/1313487689371-0.20379927172325552/contents/package
+verbose renamed [ '/tmp/npm-1313487689371/1313487689371-0.20379927172325552/contents/___package.npm/Web.js',
+verbose renamed   '/tmp/npm-1313487689371/1313487689371-0.20379927172325552/contents/package' ]
+silly testEngine { name: 'webjs',
+silly testEngine   version: '0.2.6',
+silly testEngine   description: 'A HTTP and TCP framework like Webpy for NodeJS.',
+silly testEngine   homepage: 'http://github.com/iwillwen/Web.js',
+silly testEngine   keywords: [ 'http', 'tcp', 'framework', 'simple' ],
+silly testEngine   author: 
+silly testEngine    { name: 'Will Wen Gunn',
+silly testEngine      email: 'i@iwillwen.com',
+silly testEngine      url: 'http://www.iwillwen.com' },
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/iwillwen/Web.js.git' },
+silly testEngine   main: 'index',
+silly testEngine   dependencies: { mustache: '0.3.1-dev', formidable: 'latest' },
+silly testEngine   devDependencies: {},
+silly testEngine   engines: { node: '>= 0.4.0' },
+silly testEngine   _id: 'webjs@0.2.6',
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.12',
+silly testEngine   _nodeVersion: 'v0.5.3-pre',
+silly testEngine   _defaultsLoaded: true,
+silly testEngine   path: '/tmp/npm-1313487689371/1313487689371-0.20379927172325552/contents/package' }
+verbose caching /tmp/npm-1313487689371/1313487689371-0.20379927172325552/contents/package/package.json
+verbose loadDefaults webjs@0.2.6
+verbose tarball contents [ 'package' ]
+verbose from cache /tmp/npm-1313487689371/1313487689371-0.20379927172325552/contents/package/package.json
+verbose pack /tmp/npm-1313487689371/1313487689371-0.20379927172325552/contents/package /home/willwen/.npm/webjs/0.2.6/package.tgz
+verbose mkdir done: /home/willwen/.npm/webjs/0.2.6 755
+verbose mkdir'ed /home/willwen/.npm/webjs/0.2.6
+verbose tar about to write tar and gzip it.
+silly tar args [ '-cvf',
+silly tar args   '-',
+silly tar args   'package/CNAME',
+silly tar args   'package/package.json',
+silly tar args   'package/web-client.js',
+silly tar args   'package/README.md',
+silly tar args   'package/index.html',
+silly tar args   'package/index.js',
+silly tar args   'package/lib/https.js',
+silly tar args   'package/lib/util.js',
+silly tar args   'package/lib/router.js',
+silly tar args   'package/lib/mimes.js',
+silly tar args   'package/lib/net.js',
+silly tar args   'package/lib/http.js',
+silly tar args   'package/samples/math.js',
+silly tar args   'package/samples/sayhello-sex.js',
+silly tar args   'package/samples/sayhello.js' ]
+verbose success tar -cvf - <file list elided>
+verbose success gzip "--stdout"
+verbose mkdir done: /home/willwen/.npm/webjs/0.2.6/___package.npm 755
+verbose unpack_ uid, gid [ undefined, undefined ]
+verbose unpackTarget /home/willwen/.npm/webjs/0.2.6/package
+silly gunzTarPerm modes [ '755', '644' ]
+verbose success gzip "--decompress" "--stdout" "/home/willwen/.npm/webjs/0.2.6/package.tgz"
+verbose success tar "-mvxpf" "-" "--no-same-owner" "-C" "/home/willwen/.npm/webjs/0.2.6/___package.npm"
+silly asyncMap in gTP /home/willwen/.npm/webjs/0.2.6/___package.npm/package/
+silly asyncMap in gTP /home/willwen/.npm/webjs/0.2.6/___package.npm/package/CNAME
+silly asyncMap in gTP /home/willwen/.npm/webjs/0.2.6/___package.npm/package/package.json
+silly asyncMap in gTP /home/willwen/.npm/webjs/0.2.6/___package.npm/package/web-client.js
+silly asyncMap in gTP /home/willwen/.npm/webjs/0.2.6/___package.npm/package/README.md
+silly asyncMap in gTP /home/willwen/.npm/webjs/0.2.6/___package.npm/package/index.html
+silly asyncMap in gTP /home/willwen/.npm/webjs/0.2.6/___package.npm/package/index.js
+silly asyncMap in gTP /home/willwen/.npm/webjs/0.2.6/___package.npm/package/lib/
+silly asyncMap in gTP /home/willwen/.npm/webjs/0.2.6/___package.npm/package/lib/https.js
+silly asyncMap in gTP /home/willwen/.npm/webjs/0.2.6/___package.npm/package/lib/util.js
+silly asyncMap in gTP /home/willwen/.npm/webjs/0.2.6/___package.npm/package/lib/router.js
+silly asyncMap in gTP /home/willwen/.npm/webjs/0.2.6/___package.npm/package/lib/mimes.js
+silly asyncMap in gTP /home/willwen/.npm/webjs/0.2.6/___package.npm/package/lib/net.js
+silly asyncMap in gTP /home/willwen/.npm/webjs/0.2.6/___package.npm/package/lib/http.js
+silly asyncMap in gTP /home/willwen/.npm/webjs/0.2.6/___package.npm/package/samples/
+silly asyncMap in gTP /home/willwen/.npm/webjs/0.2.6/___package.npm/package/samples/math.js
+silly asyncMap in gTP /home/willwen/.npm/webjs/0.2.6/___package.npm/package/samples/sayhello-sex.js
+silly asyncMap in gTP /home/willwen/.npm/webjs/0.2.6/___package.npm/package/samples/sayhello.js
+verbose gunzed /home/willwen/.npm/webjs/0.2.6/___package.npm/package
+verbose rm'ed /home/willwen/.npm/webjs/0.2.6/package
+verbose renamed [ '/home/willwen/.npm/webjs/0.2.6/___package.npm/package',
+verbose renamed   '/home/willwen/.npm/webjs/0.2.6/package' ]
+silly testEngine { name: 'webjs',
+silly testEngine   version: '0.2.6',
+silly testEngine   description: 'A HTTP and TCP framework like Webpy for NodeJS.',
+silly testEngine   homepage: 'http://github.com/iwillwen/Web.js',
+silly testEngine   keywords: [ 'http', 'tcp', 'framework', 'simple' ],
+silly testEngine   author: 
+silly testEngine    { name: 'Will Wen Gunn',
+silly testEngine      email: 'i@iwillwen.com',
+silly testEngine      url: 'http://www.iwillwen.com' },
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/iwillwen/Web.js.git' },
+silly testEngine   main: 'index',
+silly testEngine   dependencies: { mustache: '0.3.1-dev', formidable: 'latest' },
+silly testEngine   devDependencies: {},
+silly testEngine   engines: { node: '>= 0.4.0' },
+silly testEngine   _id: 'webjs@0.2.6',
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.12',
+silly testEngine   _nodeVersion: 'v0.5.3-pre',
+silly testEngine   _defaultsLoaded: true,
+silly testEngine   dist: 
+silly testEngine    { shasum: '72934e484b86c448766ffc4e8aa9f51bd786e651',
+silly testEngine      tarball: 'http://registry.npmjs.org/webjs/-/webjs-0.2.6.tgz' },
+silly testEngine   scripts: {} }
+verbose caching /home/willwen/.npm/webjs/0.2.6/package/package.json
+verbose loadDefaults webjs@0.2.6
+silly updated sha bytes 15158
+info shasum 72934e484b86c448766ffc4e8aa9f51bd786e651
+info shasum /home/willwen/.npm/webjs/0.2.6/package.tgz
+verbose from cache /home/willwen/.npm/webjs/0.2.6/package/package.json
+verbose chmod /home/willwen/.npm/webjs/0.2.6/package.json 644
+verbose chmod /home/willwen/.npm/webjs/0.2.6/package.tgz 644
+silly publish { name: 'webjs',
+silly publish   version: '0.2.6',
+silly publish   description: 'A HTTP and TCP framework like Webpy for NodeJS.',
+silly publish   homepage: 'http://github.com/iwillwen/Web.js',
+silly publish   keywords: [ 'http', 'tcp', 'framework', 'simple' ],
+silly publish   author: 
+silly publish    { name: 'Will Wen Gunn',
+silly publish      email: 'i@iwillwen.com',
+silly publish      url: 'http://www.iwillwen.com' },
+silly publish   repository: 
+silly publish    { type: 'git',
+silly publish      url: 'git://github.com/iwillwen/Web.js.git' },
+silly publish   main: 'index',
+silly publish   dependencies: { mustache: '0.3.1-dev', formidable: 'latest' },
+silly publish   devDependencies: {},
+silly publish   engines: { node: '>= 0.4.0' },
+silly publish   _id: 'webjs@0.2.6',
+silly publish   _engineSupported: true,
+silly publish   _npmVersion: '1.0.12',
+silly publish   _nodeVersion: 'v0.5.3-pre',
+silly publish   _defaultsLoaded: true,
+silly publish   dist: 
+silly publish    { shasum: '72934e484b86c448766ffc4e8aa9f51bd786e651',
+silly publish      tarball: 'http://registry.npmjs.org/webjs/-/webjs-0.2.6.tgz' },
+silly publish   scripts: {} }
+info prepublish webjs@0.2.6
+verbose PUT webjs
+verbose raw, before any munging webjs
+verbose url resolving [ 'http://registry.npmjs.org/', './webjs' ]
+verbose url resolved http://registry.npmjs.org/webjs
+verbose url parsed { protocol: 'http:',
+verbose url parsed   slashes: true,
+verbose url parsed   host: 'registry.npmjs.org',
+verbose url parsed   hostname: 'registry.npmjs.org',
+verbose url parsed   href: 'http://registry.npmjs.org/webjs',
+verbose url parsed   pathname: '/webjs' }
+WARN Sending authorization over insecure channel.
+silly writing json { _id: 'webjs',
+silly writing json   name: 'webjs',
+silly writing json   description: 'A HTTP and TCP framework like Webpy for NodeJS.',
+silly writing json   'dist-tags': {},
+silly writing json   versions: {},
+silly writing json   maintainers: [ { name: 'iwillwen', email: 'i@iwillwen.com' } ] }
+verbose response http://registry.npmjs.org/webjs
+silly chunk {"error":"conflict","reason":"Document update conflict."}
+silly chunk 
+verbose GET webjs
+verbose raw, before any munging webjs
+verbose url resolving [ 'http://registry.npmjs.org/', './webjs' ]
+verbose url resolved http://registry.npmjs.org/webjs
+verbose url parsed { protocol: 'http:',
+verbose url parsed   slashes: true,
+verbose url parsed   host: 'registry.npmjs.org',
+verbose url parsed   hostname: 'registry.npmjs.org',
+verbose url parsed   href: 'http://registry.npmjs.org/webjs',
+verbose url parsed   pathname: '/webjs' }
+verbose response http://registry.npmjs.org/webjs
+silly chunk <html><title>Request timeout</title><body><h1>Request timeout</h1></body></html>
+verbose bad json <html><title>Request timeout</title><body><h1>Request timeout</h1></body></html>
+ERR! registry error parsing json
+ERR! SyntaxError: Unexpected token <
+ERR! <html><title>Request timeout</title><body><h1>Request timeout</h1></body></html>
+ERR!     at Object.parse (native)
+ERR!     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/npm-registry-client/request.js:157:25)
+ERR!     at IncomingMessage.emit (events.js:88:20)
+ERR!     at HTTPParser.onMessageComplete (http.js:133:23)
+ERR!     at Socket.ondata (http.js:1221:22)
+ERR!     at Socket._onReadable (net_legacy.js:683:27)
+ERR!     at IOWatcher.onReadable [as callback] (net_legacy.js:177:10)
+ERR! Report this *entire* log at:
+ERR!     <http://github.com/isaacs/npm/issues>
+ERR! or email it to:
+ERR!     <npm-@googlegroups.com>
+ERR! 
+ERR! System Linux 2.6.38-10-generic
+ERR! command "node" "/usr/local/bin/npm" "publish" "--force"
+verbose exit [ 1, true ]

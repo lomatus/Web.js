@@ -16,16 +16,9 @@ var fs = require("fs"),
 
 //Metas
 var web = exports;
-web.version = '0.2.5';
+web.version = '0.2.6';
 web.mime = require('./lib/mimes').mimes,
-			web.metas = {
-				set tmplDir(val) {
-					mu.templateRoot = './' + val;
-				},
-				get tmplDir() {
-					return mu.templateRoot;
-				}
-			},
+			web.metas = {},
 			web.servers = [],
 			web.httpsServers = [];
 //Foundation Server
@@ -211,11 +204,9 @@ web.reg = function (format, mime) {
  * @param {Object} 
  */
 web.render = function (tmlpName, obj) {
-	var sHtml;
-	mu.render(tmlpName + '.html', obj, {}, function (err, data) {
-		data.on('data', function(d) {sHtml += d;});
-	});
-	return sHtml;
+	var html = fs.readFileSync(web.metas.tmplDir + '/' + tmlpName + '.html').toString();
+	console.log(html);
+	return mu.to_html(html, obj);
 };
 //TCP Server
 web.net = require('./lib/net');
