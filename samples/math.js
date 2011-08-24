@@ -16,6 +16,6 @@ var getRouter = {
 		res.send(req.path.id);
 	}
 };
-web.run({'abc/:math': '$1.js'}, 8888)
+web.run({'js/:math': '$1.js'}, 8888)
 	.get(getRouter);
 console.log('running');
