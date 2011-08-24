@@ -1,7 +1,7 @@
 /*
  * @fileOverview
  * @author Will Wen Gunn
- * @version 0.2.5
+ * @version 0.2.7
  */
 
 /*
@@ -16,14 +16,14 @@ var fs = require("fs"),
 
 //Metas
 var web = exports;
-web.version = '0.2.6';
+web.version = '0.2.7';
 web.mime = require('./lib/mimes').mimes,
 			web.metas = {},
 			web.servers = [],
 			web.httpsServers = [];
 //Foundation Server
-http = require('./lib/http');
-https = require('./lib/https');
+var http = require('./lib/http'),
+	https = require('./lib/https');
 //Method
 /*
  * @description 设置当前或指定Server的GetRouter
@@ -33,18 +33,20 @@ https = require('./lib/https');
 web.get = function (_gethandlers, server) {
 	var key;
 	if (server) {
+		//Set to specify server
 		for (key in _gethandlers)
 			server.getHandlers[key] = _gethandlers[key];
 	} else {
+		//Default set to current server
 		for (key in _gethandlers)
 			web.server.getHandlers[key] = _gethandlers[key];
 	}
 	return this;
 };
 /*
- * @description 设置当前货指定的Server的PostRouter
- * @param {Object} _posthandlers 传入的PostRouter
- * @param {Object} server 可指定Server
+ * @description Set a PostRouter to current server or specify server. 设置当前或指定的Server的PostRouter
+ * @param {Object} _posthandlers A PostRouter(require) 传入的PostRouter*
+ * @param {Object} server Specify server 可指定Server
  */
 web.post = function (_posthandlers, server) {
 	var key;
@@ -57,11 +59,19 @@ web.post = function (_posthandlers, server) {
 	}
 	return this;
 };
+/*
+ * @description Set a UrlRouter to current server or specify server. 设置当前或指定的Server的PostRouter
+ * @param {Object} _posthandlers A UrlRouter or a UrlRule key.(require) 传入的PostRouter或是一个规则的key.*
+ * @param {Object} server Specify server or a UrlRule origin. 可指定Server
+ */
 web.url = function (_urlhandlers, server) {
 	var key;
 	if (server) {
-		for (key in _urlhandlers)
-			server.urlHandlers[key] = _urlhandlers[key];
+		if (typeof _urlhandlers == 'object') {
+			for (key in _urlhandlers) server.urlHandlers[key] = _urlhandlers[key];
+		} else if (typeof _urlhandlers == 'string' && typeof server == 'string') {
+			server.urlHandlers[_urlhandlers] = server;
+		}
 	} else {
 		for (key in _urlhandlers)
 			web.server.urlHandlers[key] = _urlhandlers[key];
@@ -69,11 +79,11 @@ web.url = function (_urlhandlers, server) {
 	return this;
 };
 /*
- * @description 启动HTTP Server的主方法
- * @param {Object} getpath 传入的URLRouter*
- * @param {Number} port 监听的端口*
- * @param {String} host 监听的域名*
- * @param {Boolean} backserver 是否返回该Server对象(建议在启动多服务器的时候使用*)
+ * @description Run a HTTP server. 启动HTTP Server的主方法
+ * @param {Object} getpath Set a UrlRouter to the server.(require) 传入的URLRouter*
+ * @param {Number} port Port to listen.(require) 监听的端口*
+ * @param {String} host Domain to listen.(require) 监听的域名*
+ * @param {Boolean} backserver if will return the server object or not. 是否返回该Server对象(建议在启动多服务器的时候使用*)
  */
 web.run = function (getpath, port, host, backserver) {
 	if (http.server == undefined) {
@@ -81,17 +91,20 @@ web.run = function (getpath, port, host, backserver) {
 		web.servers.push(http.server);
 		web.server = http.server;
 		console.log('Create server.');
-	} else 
-	if (backserver) {
-		http.server = createHttpServer();
-		web.server = http.server;
+	} else if (backserver) {
+		//Not the first server.
+		web.server = http.server = createHttpServer();
 		console.log('Create new server.');
 	}
 	if (getpath == undefined) {
+		//Default listen 80 port
 		web.server.listen(80);
+		web.server.port = 80;
+		web.server.host = '127.0.0.1';
 		console.log('Server is running on 127.0.0.1:80');
 		if (backserver) {
-			return http.server;
+			//Return the server obejct.
+			return web.server;
 		} else {
 	 		return this;
 		}
@@ -105,9 +118,12 @@ web.run = function (getpath, port, host, backserver) {
 				web.server.listen(port);
 			} else {
 				web.server.listen(port, host);
+				web.server.host = host;
 			}
+			web.server.port = port;
 		}
 		if (backserver){
+			//Return the server obejct.
 			return web.server;
 		} else {
 			return this;
@@ -115,21 +131,28 @@ web.run = function (getpath, port, host, backserver) {
 	}
 };
 /*
- * @description 启动HTTPS Server的主方法
- * @param {Object} getpath 传入的URLRouter*
- * @param {Number} port 监听的端口*
- * @param {String} host 监听的域名*
- * @param {Boolean} backserver 是否返回该Server对象(建议在启动多服务器的时候使用*)
+ * @description Run a HTTPS server. 启动HTTP Server的主方法
+ * @param {Object} getpath Set a UrlRouter to the server.(require) 传入的URLRouter*
+ * @param {Number} port Port to listen.(require) 监听的端口*
+ * @param {String} host Domain to listen.(require) 监听的域名*
+ * @param {Boolean} backserver if will return the server object or not. 是否返回该Server对象(建议在启动多服务器的时候使用*)
  */
 web.runHttps = function (getpath, port, host, backserver) {
 	if (https.httpsServer == undefined) {
-			https.httpsServer = https.createHttpsServer();
+		https.httpsServer = https.createHttpsServer();
 		web.httpsServers.push(https.httpsServer);
 		web.httpsServer = https.httpsServer;
+	} else 
+	if (backserver) {
+		https.server = createHttpsServer();
+		web.httpsServer = https.server;
+		console.log('Create new HTTPS server.');
 	}
 	if (getpath == undefined) {
-		https.httpsServer.listen(80);
-		console.log('Server is running on 127.0.0.1:80');
+		web.httpsServer.listen(80);
+		web.server.port = 80;
+		web.server.host = '127.0.0.1';
+		console.log('Server is running on https://127.0.0.1:80');
 		if (backserver) {
 			return https.httpsServer;
 		} else {
@@ -145,7 +168,9 @@ web.runHttps = function (getpath, port, host, backserver) {
 				web.httpsServer.listen(port);
 			} else {
 				web.httpsServer.listen(port, host);
+				web.server.host = host;
 			}
+			web.httpsServer.port = port;
 		}
 		if (backserver){
 			return web.httpsServer;
@@ -155,8 +180,8 @@ web.runHttps = function (getpath, port, host, backserver) {
 	}
 };
 /*
- * @description 设置自定义404页面
- * @param {String} path 需要设置的文件路径(不包括'/')*
+ * @description Set the custom 404 page. 设置自定义404页面
+ * @param {String} path 404 page file's name.(require) 需要设置的文件路径(不包括'/')*
  */
 web.set404 = function (path) {
 	fs.readFile("./" + path, function (err, data) {
