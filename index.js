@@ -57,6 +57,17 @@ web.post = function (_posthandlers, server) {
 	}
 	return this;
 };
+web.url = function (_urlhandlers, server) {
+	var key;
+	if (server) {
+		for (key in _urlhandlers)
+			server.urlHandlers[key] = _urlhandlers[key];
+	} else {
+		for (key in _urlhandlers)
+			web.server.urlHandlers[key] = _urlhandlers[key];
+	}
+	return this;
+};
 /*
  * @description 启动HTTP Server的主方法
  * @param {Object} getpath 传入的URLRouter*
